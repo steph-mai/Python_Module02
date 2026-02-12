@@ -19,6 +19,8 @@ def water_plants(plant_list: list) -> None:
             if p is None:
                 raise PlantListError()
             print(f"Watering {p}")
+    except PlantListError as e: 
+        print(e)
     finally:
         print("Closing watering system (cleanup)")
 
