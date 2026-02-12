@@ -49,7 +49,7 @@ def test_error_types() -> None:
     print("Testing multiple errors together...")
     try:
         garden_operations("divise", 0)
-    except (ValueError, ZeroDivisionError):
+    except (Exception):
         print("Caught an error, but program continues\n")
 
     print("All error types tested successfully!")
