@@ -38,9 +38,9 @@ def test_watering_system() -> None:
         water_plants(plant_list)
         print("Watering completed successfully!\n")
     except PlantListError as e:
-        print(e)
+        pass
     finally:
-        print("")
+        pass
 
     print("Testing with error...")
     try:
@@ -52,7 +52,7 @@ def test_watering_system() -> None:
         ]
         water_plants(plant_list)
     except PlantListError as e:
-        print(e)
+        pass
     finally:
         print("\nCleanup always happens, even with errors!")
 
