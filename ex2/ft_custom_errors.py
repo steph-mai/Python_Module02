@@ -3,13 +3,13 @@ class GardenError(Exception):
 
 
 class PlantError(GardenError):
-    def __init__(self, plant="Unknown"):
+    def __init__(self, plant: str = "Unknown") -> None:
         self.message = (f"The {plant} plant is wilting!")
         super().__init__(self.message)
 
 
 class WaterError(GardenError):
-    def __init__(self, message="Not enough water in the tank!") -> None:
+    def __init__(self, message: str = "Not enough water in the tank!") -> None:
         super().__init__(message)
 
 
@@ -25,7 +25,7 @@ def valid_plants_checker(plant: str, color: str) -> None:
     """Check plants health"""
 
     if color == "yellow":
-        raise PlantError(plant)
+        raise PlantError()
     print(f"The {plant} plant is healthy")
 
 

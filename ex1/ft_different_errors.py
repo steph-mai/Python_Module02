@@ -1,4 +1,4 @@
-def garden_operations(operation: str, value=None):
+def garden_operations(operation: str, value=None) -> None | int | float | str:
     """Realize a problematic operation"""
 
     if (operation == "convert type"):
@@ -13,6 +13,7 @@ def garden_operations(operation: str, value=None):
     if (operation == "get info"):
         plants = {"rose": "pink", "sunflower": "yellow"}
         return plants[value]
+    return None
 
 
 def test_error_types() -> None:

@@ -5,12 +5,12 @@ class GardenError(Exception):
 class PlantListError(GardenError):
     def __init__(
             self,
-            message=("Error: Cannot water None - invalid plant!")
+            message: str = ("Error: Cannot water None - invalid plant!")
     ):
         super().__init__(message)
 
 
-def water_plants(plant_list: list) -> None:
+def water_plants(plant_list: list[str]) -> None:
     print("Opening watering system")
     try:
         if not plant_list:
@@ -19,7 +19,7 @@ def water_plants(plant_list: list) -> None:
             if p is None:
                 raise PlantListError()
             print(f"Watering {p}")
-    except PlantListError as e: 
+    except PlantListError as e:
         print(e)
     finally:
         print("Closing watering system (cleanup)")
@@ -37,7 +37,7 @@ def test_watering_system() -> None:
         ]
         water_plants(plant_list)
         print("Watering completed successfully!\n")
-    except PlantListError as e:
+    except PlantListError:
         pass
     finally:
         pass
@@ -51,7 +51,7 @@ def test_watering_system() -> None:
             "carrots",
         ]
         water_plants(plant_list)
-    except PlantListError as e:
+    except PlantListError:
         pass
     finally:
         print("\nCleanup always happens, even with errors!")

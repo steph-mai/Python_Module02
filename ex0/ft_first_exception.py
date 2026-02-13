@@ -1,7 +1,3 @@
-
-#flake8 mypy
-
-
 def check_temperature(temp_str: str) -> int | None:
     """check temperature validity."""
 
@@ -15,9 +11,11 @@ def check_temperature(temp_str: str) -> int | None:
 
     try:
         if temp < 0:
-            raise ValueError(f"Error: {temp_str}\u00b0C is too cold for plants (min 0\u00b0C)")
+            raise ValueError(f"Error: {temp_str}\u00b0C "
+                             f"is too cold for plants (min 0\u00b0C)")
         if temp > 40:
-            raise ValueError(f"Error: {temp_str}\u00b0C is too hot for plants (max 40\u00b0C)")
+            raise ValueError(f"Error: {temp_str}\u00b0C "
+                             f"is too hot for plants (max 40\u00b0C)")
         print(f"Temperature {temp_str}\u00b0C is perfect for plants!")
         print()
         return temp
@@ -25,6 +23,7 @@ def check_temperature(temp_str: str) -> int | None:
         print(e)
         print()
         return None
+
 
 def main() -> None:
     """Run temperature tests."""
@@ -36,6 +35,7 @@ def main() -> None:
     check_temperature("100")
     check_temperature("-50")
     print("All tests completed - program didn't crash!")
+
 
 if __name__ == "__main__":
     main()
